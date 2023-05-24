@@ -1,5 +1,4 @@
-﻿using System;
-using SuperHeroAPI.Models;
+﻿using SuperHeroAPI.Models;
 
 namespace SuperHeroAPI.Services.SuperHeroService
 {

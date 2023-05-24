@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SuperHeroAPI.Data;
 using SuperHeroAPI.Models;
 
@@ -18,16 +17,15 @@ namespace SuperHeroAPI.Services.SuperHeroService
 
         
 
-        public async Task<List<SuperHero>> AddHero(SuperHero hero)
+        public async Task<List<SuperHero>?> AddHero(SuperHero hero)
         {
-            var superHeroes = await _context.SuperHeroes.ToListAsync();
-            superHeroes.Add(hero);
 
+            _context.SuperHeroes.Add(hero);
             await _context.SaveChangesAsync();
 
-            return superHeroes;
+            return await GetAllHeroes();
         }
-
+            
         public async Task<List<SuperHero>?> DeletHero(int id)
         {
             var hero = await _context.SuperHeroes.FindAsync(id);
